@@ -1,32 +1,5 @@
-# readme 
-for many things HTML, CSS and JS
-    
-```html    
-    <!-- web app capable -->
-    <!-- <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="MLW" />
-    <meta name="application-name" content="MLW" /> -->
+# readme for many things HTML, CSS and JS
 
-
-        <!-- skip to content link -->
-         <a href="#main" class="skip-link button">Skip to main</a>
-```
-
-<!-- sync css with tailwind -->
-**npx tailwindcss -i ./styles/styles.css -o ./styles/output.css --watch**
-
-The table's children are, in order:
-
-```HTML
-<table>
-    <caption> element
-    <colgroup> elements
-    <thead> elements = (<tr> = <th> - <td>)
-    <tbody> elements = (<tr> = <th> - <td>)
-    <tfoot> elements = (<tr> = <th> - <td>)
-</table>
-```
 
 form
 method defines HTTP protocol - ie GET or POST
