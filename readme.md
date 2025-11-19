@@ -15,6 +15,8 @@
 
 
 The table's children are, in order:
+
+```HTML
 <table>
     <caption> element
     <colgroup> elements
@@ -22,6 +24,7 @@ The table's children are, in order:
     <tbody> elements = (<tr> = <th> - <td>)
     <tfoot> elements = (<tr> = <th> - <td>)
 </table>
+```
 
 form
 method defines HTTP protocol - ie GET or POST
@@ -36,6 +39,9 @@ if not value, defaults to its inner text
 
 HTML Elements API
 querySelector
+
+****************************
+
 
 CSS
 
@@ -58,6 +64,7 @@ Box defaults displays are set
 <box sizing> - is default at "content box", when you then set the width, height, padding, border, they are added to content box
 alternatively, you cna appply the dimentions to <box sizing> - "border box.
 
+```css
 *,
 *::before,
 *::after {
@@ -67,14 +74,19 @@ alternatively, you cna appply the dimentions to <box sizing> - "border box.
 [data-type='primary'] {
   color: red;
 }
+
+```
 This CSS looks for all elements that have an attribute of data-type with a value of primary, like this:
 
 <div data-type="primary"></div>
 Instead of looking for a specific value of data-type, you can also look for elements with the attribute present, regardless of its value.
 
+```css
+
 [data-type] {
   color: red;
 }
+```
 
 add s to ensure case sensitivity, and i for case insensitivity.
 
@@ -101,6 +113,7 @@ Along with case operators, you have access to operators that match portions of s
 
 HTML pseudo-classes :
 
+```css
 /* Our link is hovered */
 a:hover {
   outline: 1px dotted green;
@@ -110,13 +123,14 @@ a:hover {
 p:nth-child(even) {
   background: floralwhite;
 }
-
+```
 *******************************
 
 pseudo-elements are different ::
 because instead of responding to the platform state,
 they act as if they are inserting a new element with CSS
 
+```css
 .my-element::before {
   content: 'Prefix - ';
 }
@@ -130,11 +144,13 @@ li::marker {
   background: black;
   color: white;
 }
+```
 
 *******************************
 
 To target a child element, use space in between parent and child
 
+```css
 p strong {
   color: blue;
 }
@@ -159,17 +175,17 @@ better still use a  Next sibling selector - controlled with child combinator
   left: 0;
 }
 
-
+```
 ********************************
 
 compound selectors
 
 to target <a> elements, that also have a class of .my-class, write the following:
-
+```css
 a.my-class {
   color: red;
 }
-
+```
 *******************************
 
 CSS - Cascading Styled sheet.
@@ -189,11 +205,12 @@ Styles can come from various sources on
 Being able to specify two values for the same property can be a simple way to create fallbacks
 e.g here only for browsers that support clamp
 
+```css
 .my-element {
   font-size: 1.5rem;
   font-size: clamp(1.5rem, 1rem + 3vw, 2rem);
 }
-
+```
 ************************************
 
 Specificity:
@@ -202,6 +219,7 @@ CSS targeting a class on an element will make that rule more specific,
 and therefore seen as more important to be applied, than CSS targeting the element alone
 here
 
+```css
 .my-element {
   color: red;
 }
@@ -209,6 +227,8 @@ here
 h1 {
   color: blue;
 }
+```
+
 the h1 will be colored red even though both rules match
 and the rule for the h1 selector comes later in the style sheet.
 
@@ -284,6 +304,7 @@ The <ch> unit allows you to control the size of text based on its <actual contex
 
 number without units, defaults to percentage of the parent body.
 
+```css
 p {
   font-size: 2;
   line-height: 1.3;
@@ -295,6 +316,8 @@ p {
   font-size: 2px;
   line-height: 1.3;
 }
+```
+
 ************************************
 
 Dimensions and lengths
@@ -321,11 +344,13 @@ A relative length is calculated against a base value, much like a percentage
 Resolution units
 In the previous example the value of min-resolution is 192dpi. The dpi unit stands for dots per inch. A useful context for this is detecting very high resolution screens, such as Retina displays in a media query and serving up a higher resolution image.
 
+```css
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   div {
     background-image: url('a-high-resolution-image.jpg');
   }
 }
+```
 
 ************************************
 
@@ -342,18 +367,20 @@ and stretch them in the block direction, so they're all the same height.
 The align-items, justify-content and flex-wrap properties allow you to control how 
 flex children elements behave with and around their sibling elements.
 
+```css
 .my-element div {
     flex: 1 0 auto;
 }
 
 The flex property is a shorthand for flex-grow, flex-shrink and flex-basis. You can expand the above example like this:
 
+
 .my-element div {
  flex-grow: 1;
  flex-shrink: 0;
  flex-basis: auto;
 }
-
+```
 
 Positioning
 position: relative;
@@ -481,6 +508,7 @@ li:nth-child(2) {
 
 ************************************
 
+```css
 .post h2,
 .post li,
 .post img {
@@ -491,18 +519,22 @@ better to write as
 .post :is(h2, li, img) {
     …
 }
+```
+
 ************************************
 
 image not having alt
 
+```css
 img:not([alt]) {
     outline: 10px red;
 }
-
+```
 
 ************************************
 Pseudo elements
 
+```css
 .my-element::before {
     content: "";
 }
@@ -515,8 +547,10 @@ p::first-letter {
   color: goldenrod;
   font-weight: bold;
 }
+```
 ************************************
 
+```css
 p::first-line {
   color: goldenrod;
   font-weight: bold;
@@ -550,6 +584,8 @@ details[open] summary::marker {
   background: green;
   color: white;
 }
+```
+
 ************************************
 Border:
 border-style: dotted;
@@ -586,7 +622,7 @@ To make a head with different curves
 }
 
 You can put image in border also
-
+```css
 .my-element {
   border-image-source: url(https://assets.codepen.io/174183/border-image-frame.jpg);
   border-image-slice: 61 58 51 48;
@@ -594,6 +630,7 @@ You can put image in border also
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: stretch stretch;
 }
+```
 ************************************
 
 Shadow = HVBSC = horizontal, vertical, Blur, Spread, color
@@ -605,6 +642,7 @@ image (figure)
   <figcaption>A cool, white t-shirt</figcaption>
 </figure>
 
+```css
 figure {
   max-width: 25rem;
   margin: 2em auto;
@@ -621,6 +659,7 @@ figcaption {
 figure img {
   filter: drop-shadow(0px 0px 10px rgba(0 0 0 / 30%))
 }
+```
 
 ************************************
 
