@@ -1,0 +1,173 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 5%;
+  margin: 5%;
+}
+
+[aria-label^="breadcrumbs" i] li + li::before {
+  content: "";
+  display: inline-block;
+  
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  rotate: 45deg;
+  opacity: .8;
+
+  vertical-align: middle;
+    /* list-style-position: inside;
+    list-style-type: disc;
+    margin-right: 1em;
+    text-align: left;
+    white-space: nowrap; */
+}
+
+/* table, th, td{
+    border: 1px solid black;
+} */
+
+table, tr > *{
+    border: 1px solid black;
+}
+
+dialog :focus {
+  outline: 2px solid #226DAA;
+}
+
+body {
+  background: #a4bacc99;
+  color: #226daa;
+  font-family: Raleway, sans-serif;
+  accent-color: #226DAA;
+}
+a:hover, a:focus {
+  text-underline-offset: 0.25em;
+}
+[aria-label="close"] {
+  appearance: none;
+  float: right;
+  border: 1px solid;
+  border-radius: 50%;
+}
+dialog :focus {
+  outline: 2px solid #226DAA;
+}
+
+::selection {
+  background: black;
+  color: whitesmoke;
+}
+/* 
+        <section class="checkflex">
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+            <div>four</div>
+            <div>five</div>
+        </section> */
+
+
+/* To cause the items to grow, while allowing large items to have more space than small ones use flex:auto */
+/* You can do the same thing from a flex-basis of auto, though you will need to specify the three values. 
+The first value being flex-grow, the second flex-shrink, and the third flex-basis.  */
+.checkflex{
+  display: flex;
+  max-width: 30rem;
+  border: solid black 2px;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+  /* place-content: center flex-end; */
+
+}
+
+/* order, flex-grow, flex-shrink, flex-basis, flex, align-self, */
+.box{
+  flex: auto;
+  background: hotpink;
+  margin: 5px;
+  height: 60px;
+  width: 70px;
+  align-self: center;
+  text-align: center;
+  padding: 5%;
+}
+
+/* em is relative to font size == == % is relative to container's width 
+== px is fixed == auto is as tall as content needs*/
+
+/* .grid_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px auto;
+  gap: 10px;
+  color: black;
+  padding: 1em;
+  background-color: blueviolet;
+  width: 340px;
+  writing-mode: horizontal-tb;
+  grid-auto-flow: row;
+} */
+
+/* .grid_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: 200px auto;
+  gap: 10px;
+  background-color: yellow;
+  padding: 1em;
+  max-width: 70rem;
+} */
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas:
+        "header header header header"
+        "sidebar content content content"
+        "sidebar footer footer footer";
+}
+
+.item{
+  background-color:lemonchiffon;
+  border: 2px solid black;
+
+  /* grid-column: auto / span 2;
+  grid-column-end: span 1; */
+
+  /* grid-column-start: 1; /* start at column line 1 */
+  /*  grid-column-end: 4; /* end at column line 4 */
+  /*  grid-row-start: 2; /*start at row line 2 */
+  /*  grid-row-end: 4; /* end at row line 4 */
+}

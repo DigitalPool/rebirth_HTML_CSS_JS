@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="breadcrumbs">
+            <ol role="list">
+                <li>
+                <a href="/">web.dev</a>
+                </li>
+                <li>
+                <a href="/ratings.html">Rating</a>
+                </li>
+                <li>
+                <a href="/grid.html">Gridhtml</a>
+                </li>
+                <li>
+                <a href="/fetch.html">fetchhtml</a>
+                </li>
+            </ol>
+        </nav>
+    </header>
+    <main>
+        <Header>
+            <h2 style="margin: 2rem;">
+                The fetch Method of JS
+            </h2>
+        </Header>
+        <section>
+            <div id="fetch">
+                <div id="content"></div>
+                <p id="message"></p>
+                <p id="loading"></p>
+            </div>
+        </section>
+
+        <!-- In practice, you often use the async/await with the fetch() method to make the code more obvious: -->
+
+        <script>
+            const getUsers = async() => {
+                const url = 'https://jsonplaceholder.typicode.com/users';
+                const response = await fetch(url);
+                return await response.json();
+            };
+
+            const renderUsers = (users) =>{
+                return users
+                .map(({ name, email }) => `<li>${name} — ${email}</li>`)
+                .join('');
+            };
+
+            (async () => {
+
+                const loadingText = document.querySelector('#loading');
+                loadingText.innerHTML = 'Loading users... wait while the users are loading'
+
+                const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+                await delay(3000);
+
+                try {
+                    const users = await getUsers();
+                    console.log(users);
+                    console.log(renderUsers(users));
+                    document.querySelector('#content').innerHTML = renderUsers(users);
+                } catch (error) {
+                    document.querySelector('#message').innerHTML = error;
+                } finally {
+                    loadingText.innerHTML = '';
+                }
+            })()
+
+            async function create(blogPost) {
+                try {
+                    const url = 'https://jsonplaceholder.typicode.com/posts';
+
+                    const headers = {
+                        'Content-Type': 'application/json'
+                    }
+
+                    const body = JSON.stringify({
+                        title: blogPost.title,
+                        body: blogPost.body,
+                        userId: blogPost.userId,
+                    })
+                    
+                    const response = await fetch(url, {method: 'POST', headers, body});
+
+                    if(!response.ok){
+                        throw new Error(`HTTP error! Status: ${response.status}`)
+                    }
+
+                    const data = await response.json();
+                    console.log('Success:', data);
+
+                } catch (error) {
+                    console.log('Error', error)
+                }
+            }
+
+            create({
+                title: 'Test Post',
+                body: 'This is a test post',
+                userId: '1'
+            })
+        </script>
+        </main>
+</body>
+</html>

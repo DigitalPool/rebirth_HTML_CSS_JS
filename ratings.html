@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ratings</h1>
+    </header>
+    <script>
+        let starRating = document.getElementById("star-ratting-template").content;
+        document.body.appendChild(starRating);
+    </script>
+    <template>
+        <form id="star-rating-template">
+            <fieldset>
+                <legend>Rate your experience</legend>
+                <rating>
+                    <input type="radio" name="rating" value="1" aria-label="1 star" required /> star </rating>
+                    <input type="radio" name="rating" value="2" aria-label="2 stars" />
+                    <input type="radio" name="rating" value="3" aria-label="3 stars" />
+                    <input type="radio" name="rating" value="4" aria-label="4 stars" />
+                    <input type="radio" name="rating" value="5" aria-label="5 stars" />
+                </rating>
+            </fieldset>
+        </form>
+    </template>
+
+    <dialog id="dialog">
+        <form>
+            <button type="submit" aria-label="close" formmethod="dialog" formnovalidate>X</button>
+            <h2 id="dialogid">MLW Registration</h2>
+            <p>All fields are required</p>
+            <p>
+                <label>Name: <input type="text" name="name" required /></label>
+            </p>
+            <p>
+                <label>Warranty: <input type="number" min="0" max="10" step=”1” name="warranty" required /></label>
+            </p>
+            <p>
+                <label>Power source:
+                    <select name="powersoure">
+                        <option>AC/DC</option>
+                        <option>Battery</option>
+                        <option>Solar</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <button type="submit" formmethod="post">Submit</button>
+            </p>
+            <hr/>
+            <p>Additional buttons</p>
+                <button id="jsbutton">JS close</button>
+                <button id="reset" type="reset">Reset</button>
+            </p>
+        </form>
+    </dialog>
+
+<button id="modal">Open Modal dialog</button>
+<script src="js/script.js"></script>
+</body>
+</html>
