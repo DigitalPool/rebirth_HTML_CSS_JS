@@ -1,4 +1,5 @@
-###ReadMe for many things HTML, CSS and JS
+# readme 
+for many things HTML, CSS and JS
     
 ```html    
     <!-- web app capable -->
@@ -14,8 +15,6 @@
 
 <!-- sync css with tailwind -->
 **npx tailwindcss -i ./styles/styles.css -o ./styles/output.css --watch**
-
-
 
 The table's children are, in order:
 
