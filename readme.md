@@ -1,3 +1,6 @@
+###ReadMe for many things HTML, CSS and JS
+    
+```html    
     <!-- web app capable -->
     <!-- <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -7,7 +10,7 @@
 
         <!-- skip to content link -->
          <a href="#main" class="skip-link button">Skip to main</a>
-
+```
 
 <!-- sync css with tailwind -->
 **npx tailwindcss -i ./styles/styles.css -o ./styles/output.css --watch**
